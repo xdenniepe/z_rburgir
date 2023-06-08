@@ -1,0 +1,3322 @@
+{
+	"info": {
+		"_postman_id": "00c9d19f-dff1-42cb-9d00-e13b488a6b2f",
+		"name": "API Documentation - RoboBurger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Public",
+					"item": [
+						{
+							"name": "Two Factor Auth",
+							"item": [
+								{
+									"name": "Clear OTP",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{PUBLIC_API}}/login/clearOtp",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"login",
+												"clearOtp"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Generate OTP",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Send OTP",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Login By Email",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"token\", null);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = responseBody",
+											"pm.environment.set(\"token\", data);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"cyrus.belanio@hoolisoftware.com\",\n    \"password\": \"Test!123\",\n    \"loginType\": \"email\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/login",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"username\": \"{{username}}\",\n    \"password\": \"{{password}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{PUBLIC_API}}/login",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 28 Feb 2022 05:40:59 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBjb2luLmNvbSIsIm5iZiI6MTY0NjAyNjg1OSwiaWQiOjEsImV4cCI6MTY0ODYxODg1OSwiaWF0IjoxNjQ2MDI2ODU5fQ.NrBfSADX1-YNapMUKJ2FGS6uACVynrgLzOiWwA3cUpypWJg4z_ozArVCL7xGROcD-mm-TaNnKD3Te-PTv0H4iQ"
+								}
+							]
+						},
+						{
+							"name": "Registration",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"cyrus.belanio@hoolisoftware.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/register",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Registration",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"firstName\": \"Dennie\",\n    \"lastName\" : \"Pe\",\n    \"email\": \"dennie.pe@hoolisoftware.com\",\n    \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{PUBLIC_API}}/register",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:01:30 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain;charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "6"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "Works!"
+								}
+							]
+						},
+						{
+							"name": "Find User By Email",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@yokaiexpress.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/search/findByEmail",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"search",
+										"findByEmail"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Find User By Email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@yokaiexpress.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{PUBLIC_API}}/search/findByEmail",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"search",
+												"findByEmail"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:03:15 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"whoAdded\": 1,\n    \"whoUpdated\": null,\n    \"whenAdded\": null,\n    \"timestamp\": null,\n    \"userId\": 1,\n    \"email\": \"admin@yokaiexpress.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"status\": \"ACT\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Find User By Token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PUBLIC_API}}/search/findByToken",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"search",
+										"findByToken"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Find User By Token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{PUBLIC_API}}/search/findByToken",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"search",
+												"findByToken"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:03:39 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"whoAdded\": 1,\n    \"whoUpdated\": null,\n    \"whenAdded\": null,\n    \"timestamp\": null,\n    \"userId\": 1,\n    \"email\": \"admin@yokaiexpress.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"status\": \"ACT\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Authorize Token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PUBLIC_API}}/authorization",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"authorization"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Authorize Token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{PUBLIC_AUTH_API}}/authorization",
+											"host": [
+												"{{PUBLIC_AUTH_API}}"
+											],
+											"path": [
+												"authorization"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 28 Feb 2022 06:54:15 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "true"
+								}
+							]
+						},
+						{
+							"name": "Forgot Password",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"token\", null);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = responseBody\r",
+											"pm.environment.set(\"token\", data);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"cyrus.belanio@hoolisoftware.com\",\n    \"baseUrl\": \"http://localhost:3000/forgotpassword\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/forgotPassword",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"forgotPassword"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Forgot Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@yokaiexpress.com\",\n    \"baseUrl\": \"http://localhost:3000/forgotpassword\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{PUBLIC_API}}/forgotpassword",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"forgotpassword"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:04:41 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Verify New Password URL",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/newpassword/7dc37578-17ae-4562-9002-23d8cdc9ffcc?resendRequest=false",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"newpassword",
+										"7dc37578-17ae-4562-9002-23d8cdc9ffcc"
+									],
+									"query": [
+										{
+											"key": "resendRequest",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Verify New Password URL",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{PUBLIC_API}}/newpassword/5f735130-5d98-4d34-b178-14df650c6a95?resendRequest=false",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"newpassword",
+												"5f735130-5d98-4d34-b178-14df650c6a95"
+											],
+											"query": [
+												{
+													"key": "resendRequest",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:17:34 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update New Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"code\": \"924dc9f9-eb2b-4f24-b0af-71540c005f1b\",\n    \"newPassword\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/newpassword",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"newpassword"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update New Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\": \"5f735130-5d98-4d34-b178-14df650c6a95\",\n    \"newPassword\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{PUBLIC_API}}/newpassword",
+											"host": [
+												"{{PUBLIC_API}}"
+											],
+											"path": [
+												"newpassword"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:17:50 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Login By Phone Number",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"token\", null);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = responseBody\r",
+											"pm.environment.set(\"token\", data);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"+639452685455\",\r\n    \"password\": \"password\",\r\n    \"loginType\": \"phone\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/login",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registration By Phone",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phoneNumber\": \"+639452685455\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PUBLIC_API}}/register",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User FP Code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PUBLIC_API}}/forgotpassword/verification?userId=2",
+									"host": [
+										"{{PUBLIC_API}}"
+									],
+									"path": [
+										"forgotpassword",
+										"verification"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get Users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/users",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API}}/users",
+											"host": [
+												"{{API}}"
+											],
+											"path": [
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:18:38 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/hal+json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_embedded\": {\n        \"users\": [\n            {\n                \"whoAdded\": 1,\n                \"whoUpdated\": null,\n                \"whenAdded\": null,\n                \"timestamp\": 1647267470,\n                \"email\": \"admin@yokaiexpress.com\",\n                \"firstName\": \"John\",\n                \"lastName\": \"Doe\",\n                \"status\": \"ACT\",\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/users/1\"\n                    },\n                    \"user\": {\n                        \"href\": \"http://localhost:8080/api/users/1\"\n                    }\n                }\n            },\n            {\n                \"whoAdded\": null,\n                \"whoUpdated\": null,\n                \"whenAdded\": 1647266489,\n                \"timestamp\": 1647266489,\n                \"email\": \"dennie.pe@hoolisoftware.com\",\n                \"firstName\": \"Dennie\",\n                \"lastName\": \"Pe\",\n                \"status\": \"INA\",\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/users/2\"\n                    },\n                    \"user\": {\n                        \"href\": \"http://localhost:8080/api/users/2\"\n                    }\n                }\n            }\n        ]\n    },\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/users\"\n        },\n        \"profile\": {\n            \"href\": \"http://localhost:8080/api/profile/users\"\n        },\n        \"search\": {\n            \"href\": \"http://localhost:8080/api/users/search\"\n        }\n    },\n    \"page\": {\n        \"size\": 20,\n        \"totalElements\": 2,\n        \"totalPages\": 1,\n        \"number\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\" : \"Jones\",\n    \"email\": \"test.jones@hoolisoftware.com\",\n    \"status\": \"ACT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API}}/users/:id",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "ACT",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update User",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"firstName\": \"Jane\",\n    \"lastName\" : \"Doe\",\n    \"email\": \"admin@yokaiexpress.com\",\n    \"password\": \"password\",\n    \"status\": \"ACT\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API}}/users/:id",
+											"host": [
+												"{{API}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:19:05 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/hal+json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"whoAdded\": 1,\n    \"whoUpdated\": 1,\n    \"whenAdded\": null,\n    \"timestamp\": 1647267546,\n    \"email\": \"admin@yokaiexpress.com\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"status\": \"ACT\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        },\n        \"user\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/users/:id",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/users/:id",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get User By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API}}/users/:id",
+											"host": [
+												"{{API}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:19:36 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/hal+json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"whoAdded\": 1,\n    \"whoUpdated\": 1,\n    \"whenAdded\": null,\n    \"timestamp\": 1647267546,\n    \"email\": \"admin@yokaiexpress.com\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"status\": \"ACT\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        },\n        \"user\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Users Count",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/users/search/count",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"users",
+										"search",
+										"count"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Users Count",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API}}/users/search/count",
+											"host": [
+												"{{API}}"
+											],
+											"path": [
+												"users",
+												"search",
+												"count"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:19:58 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/hal+json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "2"
+								}
+							]
+						},
+						{
+							"name": "Get User By Email",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/users/search/findByEmail?email=admin@yokaiexpress.com",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"users",
+										"search",
+										"findByEmail"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "admin@yokaiexpress.com"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get User By Email",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API}}/users/search/findByEmail?email=admin@yokaiexpress.com",
+											"host": [
+												"{{API}}"
+											],
+											"path": [
+												"users",
+												"search",
+												"findByEmail"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "admin@yokaiexpress.com"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:20:20 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/hal+json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"whoAdded\": 1,\n    \"whoUpdated\": 1,\n    \"whenAdded\": null,\n    \"timestamp\": 1647267546,\n    \"email\": \"admin@yokaiexpress.com\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"status\": \"ACT\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        },\n        \"user\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User By Email Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/users/search/findByPhoneNumber?phoneNumber=639123333333",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"users",
+										"search",
+										"findByPhoneNumber"
+									],
+									"query": [
+										{
+											"key": "phoneNumber",
+											"value": "639123333333"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get User By Email",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API}}/users/search/findByEmail?email=admin@yokaiexpress.com",
+											"host": [
+												"{{API}}"
+											],
+											"path": [
+												"users",
+												"search",
+												"findByEmail"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "admin@yokaiexpress.com"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Mar 2022 14:20:20 GMT"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/hal+json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"whoAdded\": 1,\n    \"whoUpdated\": 1,\n    \"whenAdded\": null,\n    \"timestamp\": 1647267546,\n    \"email\": \"admin@yokaiexpress.com\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"status\": \"ACT\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        },\n        \"user\": {\n            \"href\": \"http://localhost:8080/api/users/1\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User By Phone Number",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/products",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Condiments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/condiments",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"condiments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product by ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/orders",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/orders/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Newest Order By UserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/orders/search/findByUserId?userId=1&projection=withId",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"orders",
+								"search",
+								"findByUserId"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "projection",
+									"value": "withId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : 1,\n    \"status\" : \"PENDING\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/orders",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\" : \"COMPLETED\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/orders/:orderId",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Order Id.",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProductOrder",
+			"item": [
+				{
+					"name": "Get Product Orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": 4,\n    \"order\" : \"http://localhost:8000/api/orders/1\",\n    \"quantity\": 8,\n    \"vendingMachineId\": \"2b08e375-275d-473e-910d-32700e34b61a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/productOrders/search/findByProductAndOrderID?productId=2&orderId=2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"productOrders",
+								"search",
+								"findByProductAndOrderID"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "2"
+								},
+								{
+									"key": "orderId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update ProductOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": 4,\n    \"order\" : \"http://localhost:8000/api/orders/1\",\n    \"quantity\": 8,\n    \"vendingMachineId\": \"2b08e375-275d-473e-910d-32700e34b61a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/productOrders/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"productOrders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ProductOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/productOrders/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"productOrders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\" : 2,\r\n    \"orderId\" : 1,\r\n    \"productId\" : 2,\r\n    \"vendingMachineId\" : 20003,\r\n    \"name\" : \"CUSTOM\",\r\n    \"productOrderCondiments\" : [\r\n        {\r\n            \"optionsTypeId\" : 1\r\n        },\r\n        {\r\n            \"optionsTypeId\" : 3\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/productOrder/addOrder",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"productOrder",
+								"addOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart Quantity",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get Cart Items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/cart/items?userId=2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"cart",
+								"items"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart Items By Order Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/cart/items/findByOrderId?orderId=1",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"cart",
+								"items",
+								"findByOrderId"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Completed Orders By UserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/orders/search/findAllCompletedByUserId?userId=1",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"orders",
+								"search",
+								"findAllCompletedByUserId"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Latest Order",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coupon",
+			"item": [
+				{
+					"name": "Get Coupons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/coupons?code=GIVEMEBURGERCB",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "GIVEMEBURGERCB"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Coupon",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"couponCode\": \"AP111000bb46830fa9352d06\",\r\n        \"discountPercentage\": \"100\",\r\n        \"multiUse\": \"0\"\r\n    },\r\n    {\r\n        \"couponCode\": \"AP1110001877570cb7296bbc\",\r\n        \"discountPercentage\": \"100\",\r\n        \"multiUse\": \"0\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/coupons/addCoupon",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"coupons",
+								"addCoupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Coupon Codes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"AP111000a51067ed01306387\", \r\n    \"AP1110009919aa05e6b16038\",\r\n    \"AP011000b22fad05b5092e36\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/coupons/findCoupons",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"coupons",
+								"findCoupons"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Get Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/transactions/2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction By User Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/transactions/search/findByUserId?userId=1",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions",
+								"search",
+								"findByUserId"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction By User Id Order By Desc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/transactions/search/findByUserIdOrderByTimestampDesc?userId=2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions",
+								"search",
+								"findByUserIdOrderByTimestampDesc"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/transactions",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"paymentId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/transactions",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transactions By Order ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/transactions/findByOrderId?orderId=4",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions",
+								"findByOrderId"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Latest Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/cart/items/findLatestOrder?userId=2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"cart",
+								"items",
+								"findLatestOrder"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction Receipt",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/transactions/receiptByOrderId?orderId=9",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions",
+								"receiptByOrderId"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction History",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/transactions/history?userId=1&type=active&limit=5",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions",
+								"history"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "active"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"productId\": 1,\n        \"quantity\" :2\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/products/purchase?id=2b08e375-275d-473e-910d-32700e34b61a",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"products",
+								"purchase"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2b08e375-275d-473e-910d-32700e34b61a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/products",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Product by ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ingredients",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/products/ingredients/main",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"products",
+								"ingredients",
+								"main"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Condiments Ingredients",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"optionsTypeId\":2,\r\n        \"name\":\"mustard\"\r\n    },\r\n    {\r\n        \"optionsTypeId\":1,\r\n        \"name\":\"ketchup\"\r\n    },\r\n    {\r\n        \"optionsTypeId\":3,\r\n        \"name\":\"cheese\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/condiments/ingredients?productId=2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"condiments",
+								"ingredients"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Condiment NF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"optionsTypeId\":2,\r\n        \"name\":\"mustard\"\r\n    },\r\n    {\r\n        \"optionsTypeId\":1,\r\n        \"name\":\"ketchup\"\r\n    },\r\n    {\r\n        \"optionsTypeId\":3,\r\n        \"name\":\"cheese\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/productOrder/condimentnf",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"productOrder",
+								"condimentnf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checkout",
+			"item": [
+				{
+					"name": "Checkout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\": 1,\n    \"paymentMethod\": \"fake-valid-nonce\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/transactions/checkout",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"transactions",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VendingMachine",
+			"item": [
+				{
+					"name": "Get VM by boundary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/vendingMachine/findByBoundary?lat=40.7271&lng=-74.0381",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"vendingMachine",
+								"findByBoundary"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "40.7271"
+								},
+								{
+									"key": "lng",
+									"value": "-74.0381"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nearest Vm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/vendingMachine/nearest?lat=40.7271&lng=-74.0381",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"vendingMachine",
+								"nearest"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "40.7271"
+								},
+								{
+									"key": "lng",
+									"value": "-74.0381"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Unit ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/vendingMachine/findByUnitId?vmId=200004",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"vendingMachine",
+								"findByUnitId"
+							],
+							"query": [
+								{
+									"key": "vmId",
+									"value": "200004"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All VM",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

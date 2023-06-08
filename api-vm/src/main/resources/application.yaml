@@ -1,0 +1,35 @@
+api:
+  auth: ${API_AUTH}
+  internal: ${API_INTERNAL}
+  order: ${API_ORDER}
+  payment: ${API_PAYMENT}
+  inventory: ${API_INVENTORY}
+  vendingMachine: ${API_VM}
+cors:
+  allowedOrigins: ${ALLOWED_ORIGINS}
+server:
+  port: 8085
+spring:
+  application:
+    name: VENDINGMACHINE-SERVICE
+  data:
+    rest:
+      base-path: api
+  datasource:
+    url      : ${CLONE_DB_URL}
+    username : ${CLONE_DB_USERNAME}
+    password : ${CLONE_DB_PASSWORD}
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy : org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: true
+    show-sql: false
+ROBOBURGER:
+  admin:
+    password: ${ROBOBURGER_ADMIN_PASSWORD}
+    username: ${ROBOBURGER_ADMIN_USERNAME}

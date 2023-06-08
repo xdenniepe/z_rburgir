@@ -1,0 +1,42 @@
+api:
+  auth: ${API_AUTH}
+  internal: ${API_INTERNAL}
+  order: ${API_ORDER}
+  secret: ${SECRET_KEY} 
+cors:
+  allowedOrigins: ${ALLOWED_ORIGINS}
+mail:
+  server:
+    from: ${MAIL_SERVER_FROM}
+server:
+  port: 8080
+spring:
+  application:
+    name: AUTH-SERVICE
+  data:
+    rest:
+      base-path: api
+  datasource:
+    password: ${ROBOBURGER_DB_PASSWORD}
+    url: ${ROBOBURGER_DB_URL}
+    username: ${ROBOBURGER_DB_USERNAME}
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: true
+    show-sql: false
+twilio:
+  account:
+    sid: ${SMS_ACCOUNT_SID}
+  auth:
+    token: ${SMS_AUTH_TOKEN}
+  sender: ${SMS_SENDER}
+ROBOBURGER:
+  admin:
+    password: ${ROBOBURGER_ADMIN_PASSWORD}
+    username: ${ROBOBURGER_ADMIN_USERNAME}

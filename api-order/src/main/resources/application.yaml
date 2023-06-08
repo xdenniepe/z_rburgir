@@ -1,0 +1,36 @@
+api:
+  auth: ${API_AUTH}
+  internal: ${API_INTERNAL}
+  order: ${API_ORDER}
+  vendingMachine: ${API_VM}
+  secret: ${SECRET_KEY}
+cors:
+  allowedOrigins: ${ALLOWED_ORIGINS}
+server:
+  port: 8081
+spring:
+  application:
+    name: ORDER-SERVICE
+  data:
+    rest:
+      base-path: api
+  datasource:
+    password: ${ROBOBURGER_DB_PASSWORD}
+    url: ${ROBOBURGER_DB_URL}
+    username: ${ROBOBURGER_DB_USERNAME}
+    hikari: 
+      maxLifeTime : 600000 #10 minutes wait time
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: true
+    show-sql: false
+ROBOBURGER:
+  admin:
+    password: ${ROBOBURGER_ADMIN_PASSWORD}
+    username: ${ROBOBURGER_ADMIN_USERNAME}

@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0;">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta name="x-apple-disable-message-reformatting">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="telephone=no" name="format-detection">
+        <title>Invoice</title>
+        <link href="http://fonts.cdnfonts.com/css/futura-md-bt" rel="stylesheet">
+        <style type="text/css">
+            @import url('http://fonts.cdnfonts.com/css/futura-md-bt');
+            @font-face {
+                font-family: 'Futura Md BT', sans-serif;
+                src: url("http://fonts.cdnfonts.com/css/futura-md-bt");
+            }
+            body      {
+                margin: 0;
+                padding: 0;
+                font-family: 'Futura Md BT', sans-serif;
+           }
+.wrapper   {
+                height: 100%;
+                width: 100%;
+                table-layout: fixed;
+                z-index: -2;
+            }
+.img-center
+            {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
+.paypal-left
+            {
+            height: 18px;
+            width: 45px;
+            padding-top: 10px;
+            left: 0;
+            }
+.receipt-text
+            {
+              text-align: center; 
+              color:#37250D;
+              font-size: 16px;
+              margin-top: 21px;
+              margin-bottom: 13px;
+              line-height: 25px;
+            }
+.details    
+             {
+               text-align: left;
+               font-size: 16px;
+               padding-left: 10px;
+               padding-bottom: 6px;
+               display: inline-block;
+               color: #37250D;
+               line-height: 32px;
+             }
+#information th 
+             {
+               Color: #37250D;
+               width: 100px;
+               text-align: left;
+               padding-left: 30px;
+             }
+#information td
+             {
+               Color: #37250D;
+               padding-left: 10px;
+               text-transform:capitalize;
+               line-height: 19px;
+               font-size: 14px;
+               font-weight: bold; 
+               position: absolute; 
+               left: 53px;
+             }             
+#information 
+              {
+                border-collapse: collapse;
+                width: 100%;
+              }
+
+.details-total    
+             {
+               text-align: right;
+               font-size: 16px;
+               padding-right: 15px;
+               color: #37250D;
+               padding-bottom: 12px;
+               margin-top: 10px;
+               line-height: 22px;
+             }
+ .invoice-box {
+                margin-top: 40px;
+                max-width: 800px;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                border: outset;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+                font-size: 16px;
+                font-family: 'Futura Md BT', sans-serif;
+                color: #37250D;
+                /* position: relative; */
+            }
+.invoice-content {
+                display: inline-block;
+                overflow: hidden;
+                /* position: relative; */
+                width: 100%;
+                max-height: 700px;
+            } 
+.details-span 
+            {
+               font-size: 16px;
+               padding-bottom: 6px;
+               color: #37250D;
+               text-align: left;
+            }
+.webkit 
+            {
+                max-width: 379px;
+                /* background-color: white; */
+                margin: auto;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }    
+.paypal     
+            {
+                position: absolute;
+                left: 0;
+                height: 22px;
+            }
+.line-1         {
+              height: 1px;
+              opacity: 27%;
+              padding-top: 4px;
+              padding-bottom: 15px;
+          }
+.details-payment
+            {
+               text-align: left;
+               font-size: 16px;
+               padding-left: 10px;
+               display: inline-block;
+               color: #37250D;
+               line-height: 10px;
+            }
+
+img[src="&{imageholder}"] {
+    display: none;
+}
+
+
+        </style>
+    </head>
+    <body>
+        <div class="wrapper Futura">
+            <div class="webkit">
+                <div class="invoice-box" style="width: auto; height: auto;">
+                    <div class="invoice-content">
+                        <img src="https://roboburgerdev.blob.core.windows.net/email-templates/robo-logo.png" alt="" id="logo" width="85px" height="85px"  style="padding-top: 18px; margin: auto; display: block;">
+                            <div class="receipt-text">   
+                                <span th:text="${location}" class="details-span" style="font-weight: bold;">  </span> <br>
+                                <span th:text="${address}" class="details-span"> </span> <br>
+                                <span th:text="${city}" class="details-span"> </span> <span th:text="${postalCode}" class="details-span"> </span> 
+                            </div>
+                            <div class="details">
+                                <span class="details-span" style="font-weight: bold; padding-bottom: 10px;"> Receipt</span> <span style="font-weight: bold;" th:text="${orderNo} "></span>  <br>
+                                <span class="details-span" style="padding-bottom: 10px;"> Date: </span> <span th:text="${date1}"></span>  <br>
+                                <span class="details-span" style="padding-bottom: 10px;"> RoboBurger Unit: </span> <span th:text="${vendingMachineID}"></span> <br>          
+                            </div>
+                            <div>
+                                <div style="display: flex; flex-direction: row; height: 30px; color: #37250D; margin-bottom: 22px;">
+                                    <p style="width: 100px; text-align: left; font-weight: bold; margin-left: 10px;"> Item </p>
+                                    <p style="width: 125px; text-align: right; margin-right: 23px; margin-left: 10px; font-weight: bold;"> Qty <p>
+                                    <p style="width: 70px; text-align: right; font-weight: bold;"> Price <p>
+                                </div>
+                                <div>
+                                    <div style="padding-left: 10px; font-size: 16px; text-transform: capitalize; font-weight: bold; color: #37250D;" th:utext="${htmlReceiptDetails}"> </div>
+                                </div>
+                            </div>
+                            <div class='line-1'>
+                            <hr>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; text-align: right; line-height: 17px; margin-right: 4px;">
+                                <div style="padding-left: 127px; width: 120px; ">
+                                    <p style="text-align: left; color: #37250D;">Subtotal </p>
+                                    <p style="text-align: left; color: #c7c3c1;"> <span th:text="${discountHolder}"> </span> </p> 
+                                    <p style="text-align: left; color: #37250D;">Tax </p>
+                                    <p style="font-weight: bold; color: #37250D; text-align: left;">Total (USD)</p>
+                                </div>
+                                <div style="width: 90px; line-height: 17px; color: #37250D;" >
+                                    <p> $<span th:text="${receiptSubTotal}"> </span> </p>
+                                    <p style="color: #c7c3c1;"> <span th:text="${discount}"> </span> </p>
+                                    <p> $<span th:text="${receiptTaxes}"> </span>  </p>
+                                    <p style="font-weight: bold;"> $<span style="font-weight: bold;" th:text="${receiptTotal}">  </span> </p>
+                                </div>
+                            </div>      
+
+                            <div class="details-payment"  style="padding-top: 15px;">
+                                <span> 
+                                    Paid with: <span class="details-span" th:text="${accountType}"></span>                        
+                                </span>
+                                <img class="paypal" th:src="${payPal}" alt="Payment Method Image" style="margin-left:2px; height: 19px;margin-top: 2px">   
+                            </div>  
+                            <div style="padding-bottom: 20px; padding-left: 10px; color: black;">
+                                <span th:text="${cardNum}"></span>
+                            </div>
+                    </div>    
+                </div>
+            </div>
+            <p style="color: gray; text-align: center; font-size: 11px; padding: 0px; padding-top: 2px;">**Do not reply to this message. This is a system generated email**</p>
+            <div style="color: gray; text-align: center; font-size: 11px; padding: 0px;"> <a th:href="${redirectUrl}"> Unsubscribe </a> </div>
+    </body>
+</html>

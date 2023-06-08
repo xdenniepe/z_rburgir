@@ -1,0 +1,30 @@
+api:
+  payment: ${API_PAYMENT}
+cors:
+  allowedOrigins: ${ALLOWED_ORIGINS}
+server:
+  port: 8084
+spring:
+  application:
+    name: MOCK-SERVICE
+  data:
+    rest:
+      base-path: api
+  datasource:
+    url: ${CLONE_DB_URL}
+    username: ${CLONE_DB_USERNAME}
+    password: ${CLONE_DB_PASSWORD}
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: true
+    show-sql: false
+roboburger:
+  admin:
+    password: ${ROBOBURGER_ADMIN_PASSWORD}
+    username: ${ROBOBURGER_ADMIN_USERNAME}

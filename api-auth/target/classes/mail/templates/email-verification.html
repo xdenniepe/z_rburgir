@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="width:100%;font-family:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0;">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <title>Email Verification</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            border-spacing: 0;
+        }
+        td {
+            padding: 0;
+        }
+        img {
+            border: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        p {
+            font-weight: normal;
+            color: black;
+        }
+        .span_btn {
+            border-radius: 0px;
+            background-color: #37250D;
+            color: #F5F5F5;
+            padding: 20px 0px 20px 0px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: white;
+        }
+        .webkit {
+            width: 626px;
+            height: 100%;
+            background-color: rgb(253, 253, 253);
+            margin: auto;
+            /* box-shadow: 0px 0px 6px 3px #ff000012; */
+            align-items: center;
+            text-align: center;
+            display: flex-col;
+            border-style: outset;
+        }
+        @media screen and (max-width: 600px) {
+        .webkit {
+            width: 626px;
+            height: 100%;
+        }
+        .outer {
+            margin-left: 0px;
+        }
+        #tblcontent {
+            width: 100%;  
+        }
+        #firstName {
+            margin-top: 100px;
+            text-align: left;
+            margin-right: 50px;       
+        }
+        #contentBody1{
+            margin-top: 100px;
+            text-align: left;
+            margin-right: 50px;  
+        }
+        #buttonLabel{
+            margin-left:-20px;        
+        }
+        #donotreply{
+            margin: auto; display: block;
+        }    
+        }
+
+        @media screen and (min-width: 601px) {
+        #buttonLabel{
+            margin-left:-20px;        
+        }
+        }
+    </style>
+</head>
+<body >
+        <div class="webkit">
+                <span style="opacity: 0"> </span>
+                <img src="https://roboburgerdev.blob.core.windows.net/email-templates/robo-logo.png" alt="" id="logo" width="61px" height="61px"  style="padding-top: 24px; margin: auto; display: block;"> 
+                <p id="firstName" style="display: block; margin: auto; margin-top: 42px; width: 526px; font-size: 16px; text-align: left;"> Hello Human, <span th:text="${firstName}"></span></p>  
+                <p id="contentBody1" style="text-align: left;  display: block; margin: auto; padding-bottom: 30px; padding-top: 30px; font-size: 16px; width: 526px;" th:text="${contentBody1}" > </p>
+                <a target="_blank" th:href="${redirectURL}">
+                    <span class="span_btn"  style="margin: auto; display: block; width: 330.01px;" id="buttonLabel" th:text="${buttonLabel}"> </span>
+                </a>
+                <p style="color: gray; font-size: 12px; padding-top: 47px; display: block; margin: auto; padding-bottom: 50px;" >**Do not reply to this message. This is a generated email.**</p>  
+                <span style="opacity: 0"> </span>  
+        </div>    
+</body>
+</html>

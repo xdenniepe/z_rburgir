@@ -1,0 +1,15 @@
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/ApiApplication.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/entity/ProductTypes.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/controller/ProductOptionsController.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/mapper/ProductMapper.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/mapper/ProductTypeMapper.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/controller/ProductController.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/entity/Product.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/service/ProductService.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/repository/ProductTypeRepository.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/repository/ProductOptionsRepository.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/mapper/ProductOptionsMapper.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/repository/ProductRepository.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/entity/ProductOptions.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/service/ProductOptionService.java
+/Users/dexcabal/roboburger/api-mock/src/main/java/com/mock/api/entity/OptionsType.java

@@ -1,0 +1,38 @@
+api:
+  auth: ${API_AUTH}
+  internal: ${API_INTERNAL}
+  order: ${API_ORDER}
+  payment: ${API_PAYMENT}
+  vendingMachine: ${API_VM}
+  inventory: ${API_INVENTORY}
+  secret: ${SECRET_KEY}
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: gateway
+      base-path: /*
+      path-mapping:
+          health: /healthz
+server:
+  port: 8000
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedHeaders: '*'
+            allowedMethods: '*'
+            allowedOrigins: ${ALLOWED_ORIGINS}
+  datasource:
+    password: ${ROBOBURGER_DB_PASSWORD}
+    url: ${ROBOBURGER_DB_URL}
+    username: ${ROBOBURGER_DB_USERNAME}
+  main:
+    web-application-type: reactive

@@ -1,0 +1,7 @@
+com/roboburger/vendingmachine/repository/VendingMachineRepository.class
+com/roboburger/vendingmachine/entity/VendingMachine.class
+com/roboburger/vendingmachine/VendingMachineApplication.class
+com/roboburger/vendingmachine/mapper/VendingMachineMapper.class
+com/roboburger/vendingmachine/mapper/VendingMachineMapperImpl.class
+com/roboburger/vendingmachine/controller/VendingMachineController.class
+com/roboburger/vendingmachine/service/VendingMachineService.class
