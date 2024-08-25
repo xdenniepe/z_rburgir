@@ -14,7 +14,7 @@ Run Database from Docker
 
 - **Step 1:** Run docker-compose with `docker-compose up`
 - **Step 2:** Open MySQL Workbench in your applications
-- **Step 3:** Create a database `roboburger`
+- **Step 3:** Create a database `burgerman`
 - **Step 4:** Run DDL scripts from `../DDL`
 
 # How to Install and Run the Project
