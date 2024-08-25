@@ -3,7 +3,7 @@
 IF NOT EXISTS (
     SELECT [name]
         FROM sys.databases
-        WHERE [name] = N'roboburger'
+        WHERE [name] = N'burgerman'
 )
 CREATE DATABASE roboburger;
 
